@@ -19,16 +19,21 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   description="Procurando Desentupidora em Ribeirão Preto SP? Atendimento 24h ultra rápido em 30 min para desentupimento de esgoto, vaso sanitário, ralo, limpeza de caixa de gordura, hidrossanitária e sistema desagregador hidráulico. Visita Grátis!"
   canonicalPath="/"
   faqSchemaItems={HOME_FAQS}
+  preloadHero={true}
 >
   <!-- =====================================================================
        1. HERO SECTION (Inspired by reference truck banner + WhatsApp green CTA)
        ===================================================================== -->
-  <section class="relative min-h-[580px] lg:min-h-[660px] flex items-center overflow-hidden bg-slate-950">
-    <!-- Background Image with optimized loading -->
+  <section class="relative min-h-[560px] lg:min-h-[650px] flex items-center overflow-hidden bg-slate-950">
+    <!-- Responsive WebP LCP Hero Image with explicit dimensions -->
     <img
-      src="/images/hero-caminhao.jpg"
+      src="/images/hero-caminhao.webp"
+      srcset="/images/hero-caminhao-mobile.webp 640w, /images/hero-caminhao.webp 1280w"
+      sizes="100vw"
+      width="1280"
+      height="720"
       alt="Caminhão de Hidrojateamento e Auto Vácuo da Desentupidora em Ribeirão Preto 24 Horas"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-45 scale-105 transition-transform duration-1000"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-45"
       fetchpriority="high"
       decoding="async"
     />
@@ -36,12 +41,12 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
     <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/40"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-24 w-full">
       <div class="grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-8 space-y-6">
-          <!-- Golden Yellow Overline (Matching Reference Design) -->
+          <!-- Golden Yellow Overline -->
           <div class="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 rounded-full px-4 py-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
             <span class="text-amber-400 text-xs sm:text-sm font-extrabold uppercase tracking-wider">
               SOLUÇÕES EM SANEAMENTO PARA SUA TRANQUILIDADE EM RIBEIRÃO PRETO
             </span>
@@ -63,7 +68,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base px-8 py-4 rounded-full shadow-xl shadow-emerald-500/30 hover:scale-[1.02] transition-all uppercase tracking-wide"
+              class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base px-8 py-4 rounded-full shadow-xl shadow-emerald-500/30 transition-colors uppercase tracking-wide"
             >
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
@@ -73,7 +78,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
 
             <a
               href="#orcamento"
-              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 font-bold text-sm sm:text-base px-7 py-4 rounded-full transition-all"
+              class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/25 font-bold text-sm sm:text-base px-7 py-4 rounded-full transition-colors"
             >
               <span>Simular Orçamento Grátis</span>
             </a>
@@ -83,19 +88,19 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
           <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 border-t border-white/15">
             <div class="bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-xl p-3">
               <div class="text-amber-400 font-black text-lg sm:text-xl">30 Min</div>
-              <div class="text-xs text-slate-300">Chegada Ultra Rápida em RP</div>
+              <div class="text-xs text-slate-200">Chegada Ultra Rápida em RP</div>
             </div>
             <div class="bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-xl p-3">
               <div class="text-emerald-400 font-black text-lg sm:text-xl">R$ 0,00</div>
-              <div class="text-xs text-slate-300">Visita e Orçamento no Local</div>
+              <div class="text-xs text-slate-200">Visita e Orçamento no Local</div>
             </div>
             <div class="bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-xl p-3">
               <div class="text-amber-400 font-black text-lg sm:text-xl">100% Limpo</div>
-              <div class="text-xs text-slate-300">Sem Quebrar Pisos ou Paredes</div>
+              <div class="text-xs text-slate-200">Sem Quebrar Pisos ou Paredes</div>
             </div>
             <div class="bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-xl p-3">
               <div class="text-emerald-400 font-black text-lg sm:text-xl">Plantão 24h</div>
-              <div class="text-xs text-slate-300">Domingos e Feriados</div>
+              <div class="text-xs text-slate-200">Domingos e Feriados</div>
             </div>
           </div>
         </div>
@@ -113,7 +118,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 </h2>
               </div>
               <span class="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                 Ativo 24h
               </span>
             </div>
@@ -122,21 +127,21 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
               <div class="flex items-center justify-between bg-slate-950/80 p-3 rounded-xl border border-slate-800">
                 <div>
                   <div class="font-bold text-white">Unidade Zona Sul & Fiúsa</div>
-                  <div class="text-slate-400">Ribeirânia, Nova Aliança, Bonfim Paulista</div>
+                  <div class="text-slate-300">Ribeirânia, Nova Aliança, Bonfim Paulista</div>
                 </div>
                 <span class="text-emerald-400 font-extrabold">~20 min</span>
               </div>
               <div class="flex items-center justify-between bg-slate-950/80 p-3 rounded-xl border border-slate-800">
                 <div>
                   <div class="font-bold text-white">Base Anhanguera & Zona Leste</div>
-                  <div class="text-slate-400">Castelo Branco, Jd. Paulista, Novo Mundo</div>
+                  <div class="text-slate-300">Castelo Branco, Jd. Paulista, Novo Mundo</div>
                 </div>
                 <span class="text-emerald-400 font-extrabold">~15 min</span>
               </div>
               <div class="flex items-center justify-between bg-slate-950/80 p-3 rounded-xl border border-slate-800">
                 <div>
                   <div class="font-bold text-white">Unidade Centro & Zona Norte</div>
-                  <div class="text-slate-400">Centro, Vila Tibério, Campos Elíseos, Ipiranga</div>
+                  <div class="text-slate-300">Centro, Vila Tibério, Campos Elíseos, Ipiranga</div>
                 </div>
                 <span class="text-emerald-400 font-extrabold">~25 min</span>
               </div>
@@ -147,7 +152,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-3.5 px-4 rounded-xl transition-all"
+                class="w-full flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-3.5 px-4 rounded-xl transition-colors"
               >
                 <span>💬 Chamar Plantão 24h no WhatsApp</span>
               </a>
@@ -159,8 +164,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       2. ABOUT & AUTHORITY SECTION (Inspired directly by "23+ ANOS DE EXPERIÊNCIA"
-          with circular yellow icons + rounded-tr badge over media frame)
+       2. ABOUT & AUTHORITY SECTION
        ===================================================================== -->
   <section id="sobre" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -175,16 +179,16 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             Excelência em Limpeza, Hidrossanitária e Desentupimentos desde {COMPANY_INFO.foundedYear}
           </h2>
 
-          <p class="text-slate-600 text-base leading-relaxed">
+          <p class="text-slate-700 text-base leading-relaxed">
             A <strong>HidroRibeirão Limpeza e Desentupimentos</strong> é uma <strong>empresa de desentupimento em Ribeirão Preto</strong> dedicada a fornecer serviços de limpeza técnica, engenharia <strong>hidrossanitária em Ribeirão Preto</strong> e desobstrução de alta performance em toda a região metropolitana. Nossa missão é oferecer soluções eficientes, rápidas e sustentáveis, sempre priorizando a satisfação de nossos clientes e o respeito ao <strong>saneamento básico em Ribeirão Preto</strong>.
           </p>
 
-          <!-- 3 Feature Rows with Golden-Yellow Circular Icons (Matching Reference Screenshot) -->
+          <!-- 3 Feature Rows with Golden-Yellow Circular Icons -->
           <div class="space-y-6 pt-2">
             <!-- Feature 1 -->
             <div class="flex items-start gap-4">
-              <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30 text-white">
-                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+              <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                 </svg>
               </div>
@@ -192,7 +196,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 <h3 class="text-lg font-extrabold text-slate-900">
                   Compromisso com a Qualidade e Sistema Desagregador Hidráulico
                 </h3>
-                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                <p class="text-sm text-slate-700 leading-relaxed mt-1">
                   Equipe treinada e certificada, utilizando equipamentos modernos como o <strong>sistema desagregador hidráulico em Ribeirão Preto</strong> e sondas rotativas para desentupir sem quebrar pisos, garantindo excelência e segurança.
                 </p>
               </div>
@@ -201,7 +205,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             <!-- Feature 2 -->
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
-                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -209,7 +213,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 <h3 class="text-lg font-extrabold text-slate-900">
                   Transparência, Confiança e Preço Justo (Visita Grátis)
                 </h3>
-                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                <p class="text-sm text-slate-700 leading-relaxed mt-1">
                   Mantemos uma comunicação aberta e transparente com nossos clientes: avaliamos o problema sem custo no local, sendo a escolha ideal para quem busca uma <strong>desentupidora barata em Ribeirão Preto</strong> com garantia por escrito.
                 </p>
               </div>
@@ -218,7 +222,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             <!-- Feature 3 -->
             <div class="flex items-start gap-4">
               <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
-                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
@@ -226,7 +230,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 <h3 class="text-lg font-extrabold text-slate-900">
                   Sustentabilidade e Responsabilidade Ambiental
                 </h3>
-                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                <p class="text-sm text-slate-700 leading-relaxed mt-1">
                   Seguimos as mais rígidas normas de segurança, documentação e legislações vigentes, realizando o encaminhamento correto de efluentes para <strong>estação de tratamento de esgoto de Ribeirão Preto</strong>.
                 </p>
               </div>
@@ -234,9 +238,8 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
           </div>
         </div>
 
-        <!-- Right Column: Experience Badge + Operational Showcase Frame (Inspired by Reference) -->
+        <!-- Right Column: Experience Badge + Operational Showcase Frame -->
         <div class="lg:col-span-6 relative pt-8 sm:pt-10">
-          <!-- Floating Indigo Badge with asymmetric rounded corner (Like "23+ ANOS DE EXPERIÊNCIA" in reference) -->
           <div class="absolute top-0 left-0 z-20 bg-indigo-950 text-white px-8 py-6 rounded-tr-[36px] rounded-bl-2xl shadow-xl border-b-4 border-amber-400">
             <div class="text-4xl sm:text-5xl font-black tracking-tight text-white text-center">
               {COMPANY_INFO.yearsExperience}
@@ -246,22 +249,26 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             </div>
           </div>
 
-          <!-- Main Media Frame -->
+          <!-- Main Media Frame with responsive WebP and explicit width/height -->
           <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 ml-0 sm:ml-6">
             <img
-              src="/images/equipe-tecnica.jpg"
+              src="/images/equipe-tecnica.webp"
+              srcset="/images/equipe-tecnica-mobile.webp 480w, /images/equipe-tecnica.webp 720w"
+              sizes="(max-width: 768px) 95vw, 550px"
+              width="720"
+              height="540"
               alt="Equipe técnica da Desentupidora em Ribeirão Preto operando equipamento de inspeção e sistema desagregador hidráulico"
               class="w-full h-[380px] sm:h-[440px] object-cover"
               loading="lazy"
+              decoding="async"
             />
-            <!-- Video-style Inspection Bar at the bottom (Inspired by reference screenshot) -->
             <div class="bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent p-4 sm:p-5 text-white">
               <div class="flex items-center justify-between text-xs font-semibold mb-2">
                 <span class="inline-flex items-center gap-2 text-emerald-400">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
                   Tecnologia Sem Quebra de Pisos • Ribeirão Preto SP
                 </span>
-                <span class="text-slate-300 font-mono">100% Garantido</span>
+                <span class="text-slate-200 font-mono">100% Garantido</span>
               </div>
               <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
                 <div class="bg-amber-400 w-3/4 h-full rounded-full"></div>
@@ -275,12 +282,10 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
 
   <!-- =====================================================================
        3. DIAGONAL SPLIT BANNER: VISION, MISSION & REGIONAL COMMITMENT
-          (Directly inspired by the bottom section of the reference image!)
        ===================================================================== -->
   <section class="bg-slate-100 overflow-hidden border-y border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 items-stretch">
-        <!-- Left Light Block -->
         <div class="lg:col-span-5 py-14 lg:py-20 pr-0 lg:pr-10 flex flex-col justify-center">
           <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-950 mb-2">
             EXCELÊNCIA EM SANEAMENTO DESDE {COMPANY_INFO.foundedYear}
@@ -288,14 +293,12 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
             Seu Parceiro em Limpeza e Desentupimentos em Ribeirão Preto e Região
           </h2>
-          <p class="text-sm sm:text-base text-slate-600 mt-4 leading-relaxed">
+          <p class="text-sm sm:text-base text-slate-700 mt-4 leading-relaxed">
             Atendemos com frota própria em todos os bairros de <strong>Ribeirão Preto SP</strong> (Zona Sul, Centro, Eixo Anhanguera, Zona Leste e Zona Norte), além de Bonfim Paulista, Cravinhos, Sertãozinho e Jardinópolis.
           </p>
         </div>
 
-        <!-- Right Dark Navy Block with Diagonal Yellow Stripe -->
         <div class="lg:col-span-7 relative flex items-stretch">
-          <!-- Diagonal Yellow Accent Stripe on Desktop -->
           <div
             class="hidden lg:block w-8 bg-amber-400 shrink-0 transform -skew-x-12 translate-x-4 z-10"
             aria-hidden="true"
@@ -328,19 +331,18 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       4. SERVICES SILO SECTION (Targeting all primary & secondary SEO keywords
-          and linking to dedicated internal pages)
+       4. SERVICES SILO SECTION
        ===================================================================== -->
   <section id="servicos" class="py-20 lg:py-28 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-        <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-blue-900 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full">
+        <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-blue-950 bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-full">
           PORTFÓLIO COMPLETO DE DESENTUPIMENTO 24 HORAS
         </span>
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
           Serviços de Desentupidora em Ribeirão Preto SP
         </h2>
-        <p class="text-base sm:text-lg text-slate-600">
+        <p class="text-base sm:text-lg text-slate-700">
           Atendemos residências, condomínios, comércios, restaurantes e indústrias com equipamentos específicos para cada tubulação. Clique no serviço desejado para ver detalhes técnicos ou peça seu orçamento imediato:
         </p>
       </div>
@@ -353,7 +355,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 <span class="text-xs font-extrabold uppercase tracking-wider bg-amber-400 text-slate-950 px-3 py-1 rounded-full">
                   {service.badge}
                 </span>
-                <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                <span class="text-xs font-extrabold text-emerald-950 bg-emerald-100 border border-emerald-300 px-2.5 py-1 rounded-full">
                   Visita Grátis
                 </span>
               </div>
@@ -364,14 +366,14 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 </a>
               </h3>
 
-              <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+              <p class="text-sm text-slate-700 mt-3 leading-relaxed">
                 {service.description}
               </p>
 
               <ul class="mt-5 space-y-2 border-t border-slate-200/70 pt-4">
                 {service.benefits.slice(0, 3).map((benefit) => (
-                  <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                    <span class="text-emerald-600 font-black mt-0.5">✓</span>
+                  <li class="flex items-start gap-2 text-xs sm:text-sm text-slate-800">
+                    <span class="text-emerald-800 font-black mt-0.5">✓</span>
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -381,9 +383,9 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             <div class="mt-7 pt-4 border-t border-slate-200/60 flex items-center justify-between gap-3">
               <a
                 href={`/servicos/${service.slug}`}
-                class="text-xs sm:text-sm font-extrabold text-blue-900 hover:text-blue-700 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                class="text-xs sm:text-sm font-extrabold text-blue-950 hover:text-blue-800 inline-flex items-center gap-1"
               >
-                <span>Ver página completa</span>
+                <span>Ver detalhes</span>
                 <span>→</span>
               </a>
 
@@ -393,7 +395,8 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition-colors"
+                aria-label={`Orçar ${service.shortTitle} no WhatsApp`}
+                class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs px-4 py-2.5 rounded-xl transition-colors"
               >
                 Orçar no WhatsApp
               </a>
@@ -414,9 +417,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       6. TECHNICAL SEO AUTHORITY SECTION:
-          Hidrossanitária, Sistema Desagregador Hidráulico & Estação de Tratamento
-          de Esgoto de Ribeirão Preto
+       6. TECHNICAL SEO AUTHORITY SECTION
        ===================================================================== -->
   <section id="saneamento" class="py-20 lg:py-28 bg-slate-950 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -430,7 +431,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
             Sistema Desagregador Hidráulico e Tratamento de Esgoto em Ribeirão Preto
           </h2>
 
-          <p class="text-slate-300 text-base leading-relaxed">
+          <p class="text-slate-200 text-base leading-relaxed">
             Diferente de métodos improvisados que podem perfurar canos de PVC ou empurrar a obstrução para o fundo da rede coletora, nossa <strong>empresa de desentupimento em Ribeirão Preto</strong> investe pesado em engenharia <strong>hidrossanitária em Ribeirão Preto</strong>.
           </p>
 
@@ -439,7 +440,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
               <h3 class="text-lg font-extrabold text-amber-400">
                 1. Sistema Desagregador Hidráulico em Ribeirão Preto
               </h3>
-              <p class="text-sm text-slate-300 mt-1.5 leading-relaxed">
+              <p class="text-sm text-slate-200 mt-1.5 leading-relaxed">
                 O <strong>sistema desagregador hidráulico</strong> combina cabeçotes rotativos hidromecânicos e jatos direcionados em 360° que trituram placas de gordura saponificada, raízes de árvores, restos de cimento e incrustações calcárias, devolvendo 100% da vazão original da tubulação sem quebrar um único azulejo.
               </p>
             </div>
@@ -448,7 +449,7 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
               <h3 class="text-lg font-extrabold text-emerald-400">
                 2. Destinação em Estação de Tratamento de Esgoto de Ribeirão Preto
               </h3>
-              <p class="text-sm text-slate-300 mt-1.5 leading-relaxed">
+              <p class="text-sm text-slate-200 mt-1.5 leading-relaxed">
                 Todo resíduo succionado em serviços de limpa fossa, caixas separadoras e <strong>limpeza de caixa de gordura em Ribeirão Preto</strong> é transportado em caminhões auto vácuo herméticos até uma <strong>estação de tratamento de esgoto de Ribeirão Preto</strong> devidamente homologada, fortalecendo o <strong>saneamento básico em Ribeirão Preto</strong> e garantindo conformidade ambiental total para sua residência ou empresa.
               </p>
             </div>
@@ -458,32 +459,36 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
         <div class="lg:col-span-6 space-y-6">
           <div class="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
             <img
-              src="/images/hidrojateamento-esgoto.jpg"
+              src="/images/hidrojateamento-esgoto.webp"
+              srcset="/images/hidrojateamento-esgoto-mobile.webp 480w, /images/hidrojateamento-esgoto.webp 720w"
+              sizes="(max-width: 768px) 95vw, 550px"
+              width="720"
+              height="540"
               alt="Caminhão e equipamento de hidrojateamento e tratamento de esgoto em Ribeirão Preto"
               class="w-full h-[360px] sm:h-[420px] object-cover"
               loading="lazy"
+              decoding="async"
             />
           </div>
 
-          <!-- Comparison Table: Why we are the best value ("Desentupidora Barata Ribeirão Preto") -->
           <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
             <h3 class="text-base sm:text-lg font-extrabold text-white mb-3">
               Por que somos a Desentupidora em Ribeirão Preto com Melhor Custo-Benefício?
             </h3>
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-4">
               Muitos clientes pesquisam por <strong>desentupidora barata em Ribeirão Preto</strong> para fugir de preços abusivos. Na HidroRibeirão, unimos <strong>preço justo e acessível</strong> com orçamento fechado antes do serviço (não cobramos visita técnica!).
             </p>
             <div class="grid grid-cols-2 gap-3 text-xs">
-              <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-emerald-300 font-semibold">
+              <div class="bg-emerald-500/15 border border-emerald-500/40 rounded-xl p-3 text-emerald-300 font-bold">
                 ✓ Orçamento Fechado Sem Surpresas
               </div>
-              <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-emerald-300 font-semibold">
+              <div class="bg-emerald-500/15 border border-emerald-500/40 rounded-xl p-3 text-emerald-300 font-bold">
                 ✓ Parcelamento no Cartão & Desconto PIX
               </div>
-              <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-emerald-300 font-semibold">
+              <div class="bg-emerald-500/15 border border-emerald-500/40 rounded-xl p-3 text-emerald-300 font-bold">
                 ✓ Garantia por Escrito de até 1 Ano
               </div>
-              <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3 text-emerald-300 font-semibold">
+              <div class="bg-emerald-500/15 border border-emerald-500/40 rounded-xl p-3 text-emerald-300 font-bold">
                 ✓ Atendimento 24h Sem Taxa de Visita
               </div>
             </div>
@@ -494,18 +499,18 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       7. REGIONAL COVERAGE IN RIBEIRÃO PRETO SP (Neighborhoods & Fast Dispatch)
+       7. REGIONAL COVERAGE IN RIBEIRÃO PRETO SP
        ===================================================================== -->
   <section id="bairros" class="py-20 lg:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto space-y-3 mb-14">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-blue-900">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-blue-950">
           PLANTÃO MÓVEL 24H EM TODA A CIDADE
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
           Atendimento Ultra Rápido em Todos os Bairros de Ribeirão Preto SP
         </h2>
-        <p class="text-slate-600 text-base">
+        <p class="text-slate-700 text-base">
           Com bases operacionais distribuídas estrategicamente (incluindo nossa base rápida no <strong>Eixo Anhanguera em Ribeirão Preto</strong>, Zona Sul e Centro), garantimos chegada ágil para qualquer emergência:
         </p>
       </div>
@@ -515,12 +520,12 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
           <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80">
             <h3 class="text-base font-extrabold text-blue-950 border-b border-slate-200 pb-3 mb-4 flex items-center justify-between">
               <span>{group.region}</span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
             </h3>
-            <ul class="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-800 font-medium">
               {group.list.map((b) => (
                 <li class="flex items-center gap-2">
-                  <span class="text-amber-500 font-bold">•</span>
+                  <span class="text-amber-700 font-bold">•</span>
                   <span>Desentupidora {b}</span>
                 </li>
               ))}
@@ -532,23 +537,23 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       8. CUSTOMER TESTIMONIALS IN RIBEIRÃO PRETO
+       8. CUSTOMER TESTIMONIALS IN RIBEIRÃO PRETO (High contrast badge)
        ===================================================================== -->
   <section class="py-16 lg:py-24 bg-slate-50 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-600">
+        <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-amber-950 bg-amber-200 border border-amber-400 px-3.5 py-1 rounded-full">
           AVALIAÇÃO 4.9/5 DE CLIENTES REAIS
         </span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
           O que dizem nossos clientes em Ribeirão Preto
         </h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-          <div class="text-amber-400 text-lg">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">
+          <div class="text-amber-600 text-lg" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="text-sm text-slate-700 italic">
             "Tivemos um retorno na rede de esgoto no domingo à noite aqui no Jardim Botânico. A equipe chegou em 25 minutos, passou o equipamento sem quebrar o porcelanato e cobrou um preço super justo!"
           </p>
           <div class="text-xs font-bold text-slate-900">
@@ -557,8 +562,8 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
         </div>
 
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-          <div class="text-amber-400 text-lg">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">
+          <div class="text-amber-600 text-lg" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="text-sm text-slate-700 italic">
             "Contratamos a limpeza de caixa de gordura em Ribeirão Preto para o nosso restaurante no Centro. Fizeram a sucção completa, hidrojatearam a tubulação e emitiram o laudo ambiental da ETE."
           </p>
           <div class="text-xs font-bold text-slate-900">
@@ -567,8 +572,8 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
         </div>
 
         <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-          <div class="text-amber-400 text-lg">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">
+          <div class="text-amber-600 text-lg" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p class="text-sm text-slate-700 italic">
             "Melhor empresa de desentupimento em Ribeirão Preto! Desentupiram o vaso sanitário e o ralo da área gourmet na Vila Tibério rapidinho e deixaram tudo limpo."
           </p>
           <div class="text-xs font-bold text-slate-900">
@@ -580,18 +585,18 @@ const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComp
   </section>
 
   <!-- =====================================================================
-       9. FAQ SECTION (Structured for Google Rich Snippets)
+       9. FAQ SECTION
        ===================================================================== -->
   <section id="faq" class="py-20 lg:py-24 bg-white border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center space-y-3 mb-12">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-blue-900">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-blue-950">
           TIRE SUAS DÚVIDAS
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
           Perguntas Frequentes sobre Desentupidora em Ribeirão Preto
         </h2>
-        <p class="text-slate-600 text-sm sm:text-base">
+        <p class="text-slate-700 text-sm sm:text-base">
           Respostas diretas sobre atendimento 24 horas, preços, visita gratuita e garantia.
         </p>
       </div>

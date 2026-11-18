@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import CookieConsent from '../components/CookieConsent';
+import CookieConsent from '../components/CookieConsent.astro';
 import { COMPANY_INFO, SERVICES_DATA } from '../data/seoData';
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   faqSchemaItems?: { q: string; a: string }[];
+  preloadHero?: boolean;
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   description = 'Procurando Desentupidora em Ribeirão Preto SP? Atendimento 24 horas para desentupimento de esgoto, vaso sanitário, ralo, limpeza de caixa de gordura, hidrossanitária e sistema desagregador hidráulico. Chegada em 30 min!',
   canonicalPath = '/',
   faqSchemaItems = [],
+  preloadHero = false,
 } = Astro.props;
 
 const siteUrl = COMPANY_INFO.siteUrl;
@@ -108,6 +110,21 @@ const faqSchema =
     <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap.xml" />
 
+    <!-- Preload LCP Hero Image in WebP -->
+    {
+      preloadHero && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/webp"
+          href="/images/hero-caminhao.webp"
+          imagesrcset="/images/hero-caminhao-mobile.webp 640w, /images/hero-caminhao.webp 1280w"
+          imagesizes="100vw"
+          fetchpriority="high"
+        />
+      )
+    }
+
     <!-- Favicon & App Icons (Barra de Endereço, Abas e Google Search) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
@@ -129,14 +146,6 @@ const faqSchema =
     <meta property="og:site_name" content={COMPANY_INFO.fullName} />
     <meta property="og:image" content={`${siteUrl}/images/hero-caminhao.jpg`} />
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- Structured Data JSON-LD -->
     <script
       type="application/ld+json"
@@ -152,14 +161,14 @@ const faqSchema =
     }
   </head>
   <body class="min-h-screen flex flex-col">
-    <Navbar client:load />
+    <Navbar />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
 
     <!-- Termo de Consentimento de Cookies (LGPD) -->
-    <CookieConsent client:load />
+    <CookieConsent />
 
     <!-- Mobile Sticky Bottom Bar (Apenas Botão de WhatsApp, sem número de telefone) -->
     <div class="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-2.5 shadow-2xl">
@@ -181,7 +190,7 @@ const faqSchema =
       aria-label="Fale conosco no WhatsApp 24 horas em Ribeirão Preto"
       class="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm px-5 py-3.5 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-all"
     >
-      <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+      <span class="w-2.5 h-2.5 rounded-full bg-slate-950"></span>
       <span>Fale no WhatsApp 24h</span>
     </a>
   </body>

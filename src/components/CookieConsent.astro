@@ -1,0 +1,81 @@
+---
+---
+
+<div
+  id="cookie-consent-banner"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Termo de Consentimento de Cookies"
+  class="hidden fixed bottom-16 sm:bottom-5 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-md z-50 bg-slate-950/95 backdrop-blur-md text-white border border-slate-800 rounded-2xl p-5 shadow-2xl"
+>
+  <div class="flex items-start gap-3">
+    <div class="w-9 h-9 rounded-xl bg-amber-400/15 border border-amber-400/30 flex items-center justify-center shrink-0 mt-0.5 text-amber-400 font-bold">
+      ✓
+    </div>
+    <div class="space-y-2 text-xs leading-relaxed text-slate-200">
+      <div class="font-extrabold text-sm text-white">
+        Termo de Consentimento de Cookies (LGPD)
+      </div>
+      <p>
+        Utilizamos cookies essenciais e de análise no site <strong class="text-white">hidroribeirao.com</strong> para melhorar sua experiência de navegação e agilizar seu atendimento em Ribeirão Preto. Ao continuar, você concorda com nossa{' '}
+        <a
+          href="/politica-de-privacidade"
+          class="text-amber-400 underline hover:text-amber-300 font-bold"
+        >
+          Política de Privacidade e Cookies
+        </a>.
+      </p>
+      <div class="pt-2 flex items-center gap-2.5">
+        <button
+          id="cookie-accept-btn"
+          type="button"
+          class="flex-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs py-2.5 px-4 rounded-xl transition-colors cursor-pointer"
+        >
+          Aceitar e Continuar
+        </button>
+        <button
+          id="cookie-essential-btn"
+          type="button"
+          class="bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2.5 px-3.5 rounded-xl transition-colors cursor-pointer"
+        >
+          Apenas Essenciais
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    try {
+      if (!localStorage.getItem('hidroribeirao_cookie_consent')) {
+        var banner = document.getElementById('cookie-consent-banner');
+        if (banner) {
+          banner.classList.remove('hidden');
+        }
+      }
+    } catch (e) {}
+
+    var acceptBtn = document.getElementById('cookie-accept-btn');
+    var essentialBtn = document.getElementById('cookie-essential-btn');
+    var bannerEl = document.getElementById('cookie-consent-banner');
+
+    function closeBanner(val) {
+      try {
+        localStorage.setItem('hidroribeirao_cookie_consent', val);
+      } catch (e) {}
+      if (bannerEl) bannerEl.classList.add('hidden');
+    }
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        closeBanner('accepted');
+      });
+    }
+    if (essentialBtn) {
+      essentialBtn.addEventListener('click', function () {
+        closeBanner('essential_only');
+      });
+    }
+  })();
+</script>

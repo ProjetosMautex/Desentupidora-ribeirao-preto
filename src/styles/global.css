@@ -3,7 +3,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   }
 
   body {
@@ -11,7 +11,6 @@
   }
 }
 
-/* Custom diagonal cuts and animations inspired by the reference design */
 .clip-diagonal-left {
   clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
 }
