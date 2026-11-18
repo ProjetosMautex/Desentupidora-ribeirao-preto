@@ -1,0 +1,182 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent';
+import { COMPANY_INFO, SERVICES_DATA } from '../data/seoData';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  faqSchemaItems?: { q: string; a: string }[];
+}
+
+const {
+  title = 'Desentupidora em Ribeirão Preto 24 Horas | HidroRibeirão Visita Grátis',
+  description = 'Procurando Desentupidora em Ribeirão Preto SP? Atendimento 24 horas para desentupimento de esgoto, vaso sanitário, ralo, limpeza de caixa de gordura, hidrossanitária e sistema desagregador hidráulico. Chegada em 30 min!',
+  canonicalPath = '/',
+  faqSchemaItems = [],
+} = Astro.props;
+
+const siteUrl = COMPANY_INFO.siteUrl;
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  'Olá! Preciso de uma Desentupidora em Ribeirão Preto (Orçamento Grátis).'
+)}`;
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Plumber',
+  name: COMPANY_INFO.fullName,
+  description,
+  url: canonicalUrl,
+  email: COMPANY_INFO.email,
+  priceRange: '$$',
+  image: `${siteUrl}/images/hero-caminhao.jpg`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Pres. Vargas, 2121 - Jardim América',
+    addressLocality: 'Ribeirão Preto',
+    addressRegion: 'SP',
+    postalCode: '14020-260',
+    addressCountry: 'BR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -21.1775,
+    longitude: -47.8103,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Ribeirão Preto',
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Serviços de Desentupidora e Saneamento em Ribeirão Preto',
+    itemListElement: SERVICES_DATA.map((s) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.metaDescription,
+        url: `${siteUrl}/servicos/${s.slug}`,
+      },
+    })),
+  },
+};
+
+const faqSchema =
+  faqSchemaItems.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqSchemaItems.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.a,
+          },
+        })),
+      }
+    : null;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Geo Meta Tags for Local SEO in Ribeirão Preto SP -->
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="Ribeirão Preto" />
+    <meta name="geo.position" content="-21.1775;-47.8103" />
+    <meta name="ICBM" content="-21.1775, -47.8103" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={COMPANY_INFO.fullName} />
+    <meta property="og:image" content={`${siteUrl}/images/hero-caminhao.jpg`} />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data JSON-LD -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(localBusinessSchema)}
+    />
+    {
+      faqSchema && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(faqSchema)}
+        />
+      )
+    }
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navbar client:load />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Termo de Consentimento de Cookies (LGPD) -->
+    <CookieConsent client:load />
+
+    <!-- Mobile Sticky Bottom Bar (Apenas Botão de WhatsApp, sem número de telefone) -->
+    <div class="fixed bottom-0 inset-x-0 z-40 sm:hidden bg-slate-950/95 backdrop-blur-md border-t border-slate-800 p-2.5 shadow-2xl">
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full flex items-center justify-center gap-2 bg-emerald-500 text-slate-950 font-black text-xs py-3.5 px-4 rounded-xl shadow-md uppercase tracking-wide"
+      >
+        <span>💬 Fale Conosco no WhatsApp 24h (Visita Grátis)</span>
+      </a>
+    </div>
+
+    <!-- Desktop Floating WhatsApp Button -->
+    <a
+      href={waUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Fale conosco no WhatsApp 24 horas em Ribeirão Preto"
+      class="hidden sm:flex fixed bottom-6 right-6 z-40 items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm px-5 py-3.5 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-all"
+    >
+      <span class="w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+      <span>Fale no WhatsApp 24h</span>
+    </a>
+  </body>
+</html>

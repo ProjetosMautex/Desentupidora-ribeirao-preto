@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactLeadForm from '../components/ContactLeadForm';
+import { COMPANY_INFO } from '../data/seoData';
+
+const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  'Olá! Estou na página de Contato da HidroRibeirão e preciso de uma Desentupidora em Ribeirão Preto.'
+)}`;
+---
+
+<BaseLayout
+  title="Contato | HidroRibeirão Desentupidora em Ribeirão Preto 24 Horas"
+  description="Entre em contato com a HidroRibeirão Desentupidora em Ribeirão Preto SP. Atendimento 24 horas via WhatsApp e e-mail contato@hidroribeirao.com com visita gratuita."
+  canonicalPath="/contato"
+>
+  <!-- Top Header -->
+  <section class="bg-slate-950 text-white py-14 lg:py-20 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-amber-400 mb-2">
+        PLANTÃO 24 HORAS EM RIBEIRÃO PRETO SP
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight">
+        Fale Conosco — Orçamento e Visita Técnica Grátis
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg mt-3">
+        Atendimento imediato em todos os bairros de Ribeirão Preto para emergências 24h ou agendamentos preventivos.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Contact Section -->
+  <section class="py-16 lg:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Info Cards (Sem número de telefone visível, apenas Botão WhatsApp, E-mail e Endereço Temporário) -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm space-y-5">
+          <h2 class="text-xl font-extrabold text-slate-900">
+            Canais Oficiais de Atendimento
+          </h2>
+
+          <div class="space-y-4 text-sm">
+            <!-- WhatsApp Direct Card -->
+            <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
+              <div class="font-extrabold text-emerald-950 text-base">
+                Plantão Rápido via WhatsApp (24 Horas)
+              </div>
+              <p class="text-xs text-emerald-800 leading-relaxed">
+                Clique no botão abaixo para falar imediatamente com nossa central de triagem e solicitar uma equipe em Ribeirão Preto:
+              </p>
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm py-3.5 px-5 rounded-xl shadow-md transition-all"
+              >
+                <span>💬 FALE CONOSCO NO WHATSAPP</span>
+              </a>
+            </div>
+
+            <!-- Email Card -->
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-500">
+                E-mail Corporativo & Cotação para Empresas
+              </div>
+              <a
+                href={`mailto:${COMPANY_INFO.email}`}
+                class="text-base sm:text-lg font-extrabold text-blue-900 hover:underline block mt-1"
+              >
+                {COMPANY_INFO.email}
+              </a>
+              <p class="text-xs text-slate-500 mt-1">
+                Envie solicitações de propostas para condomínios, comércios, restaurantes e indústrias.
+              </p>
+            </div>
+
+            <!-- Address Card -->
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-500">
+                Localização / Base de Atendimento em Ribeirão Preto
+              </div>
+              <div class="text-sm font-bold text-slate-900 mt-1">
+                {COMPANY_INFO.address}
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Unidades móveis distribuídas na Zona Sul, Centro, Eixo Anhanguera, Zona Leste e Zona Norte.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Lead Form -->
+      <div class="lg:col-span-7">
+        <ContactLeadForm client:load />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

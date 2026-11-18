@@ -1,0 +1,114 @@
+---
+import { COMPANY_INFO, SERVICES_DATA } from '../data/seoData';
+
+const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  'Olá! Vim pelo site hidroribeirao.com e preciso de atendimento de Desentupidora em Ribeirão Preto.'
+)}`;
+---
+
+<footer class="bg-slate-950 text-slate-300 border-t border-slate-800 pb-24 sm:pb-12">
+  <!-- Pre-footer CTA Banner -->
+  <div class="bg-gradient-to-r from-blue-950 via-indigo-950 to-slate-900 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div class="text-center lg:text-left">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-amber-400 block mb-1">
+          EMERGÊNCIA 24 HORAS EM RIBEIRÃO PRETO SP
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+          Precisa de uma Desentupidora em Ribeirão Preto Agora?
+        </h2>
+        <p class="text-slate-300 text-sm sm:text-base mt-1">
+          Visita técnica gratuita, preço justo, equipamentos sem quebrar pisos e chegada em até 30 minutos.
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-emerald-500/20 transition-all"
+        >
+          <span>FALE CONOSCO NO WHATSAPP 24H</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Grid -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+    <!-- Col 1: Brand & Local SEO Info -->
+    <div class="lg:col-span-4 space-y-4">
+      <a href="/" class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center text-slate-950 font-black text-xl">
+          HR
+        </div>
+        <div>
+          <span class="block text-xl font-extrabold text-white leading-none">
+            Hidro<span class="text-amber-400">Ribeirão</span>
+          </span>
+          <span class="block text-xs text-slate-400 mt-0.5">
+            hidroribeirao.com • Ribeirão Preto SP
+          </span>
+        </div>
+      </a>
+      <p class="text-sm text-slate-400 leading-relaxed">
+        Empresa de desentupimento em Ribeirão Preto SP com mais de {COMPANY_INFO.yearsExperience} anos de experiência em saneamento básico, engenharia hidrossanitária, sistema desagregador hidráulico, limpeza de caixa de gordura e transporte licenciado para estação de tratamento de esgoto de Ribeirão Preto.
+      </p>
+      <div class="text-xs text-slate-400 space-y-2 pt-1">
+        <p><strong class="text-white">Endereço em Ribeirão Preto:</strong> {COMPANY_INFO.address}</p>
+        <p>
+          <strong class="text-white">E-mail de Contato:</strong>{' '}
+          <a href={`mailto:${COMPANY_INFO.email}`} class="text-amber-400 hover:underline">
+            {COMPANY_INFO.email}
+          </a>
+        </p>
+        <p><strong class="text-white">Atendimento:</strong> Plantão 24 horas por dia, 7 dias por semana (inclusive Domingos e Feriados)</p>
+      </div>
+    </div>
+
+    <!-- Col 2: Silo de Serviços (Links Internos SEO) -->
+    <div class="lg:col-span-4 space-y-3">
+      <h3 class="text-sm font-extrabold uppercase tracking-wider text-amber-400">
+        Serviços Especializados em Ribeirão Preto
+      </h3>
+      <ul class="space-y-2.5 text-sm">
+        {SERVICES_DATA.map((service) => (
+          <li>
+            <a
+              href={`/servicos/${service.slug}`}
+              class="text-slate-300 hover:text-amber-400 transition-colors flex items-center gap-2"
+            >
+              <span class="text-amber-400">›</span>
+              <span>{service.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Col 3: Institucional & Áreas de Plantão -->
+    <div class="lg:col-span-4 space-y-4">
+      <h3 class="text-sm font-extrabold uppercase tracking-wider text-amber-400">
+        Navegação & Institucional
+      </h3>
+      <ul class="grid grid-cols-2 gap-2 text-sm">
+        <li><a href="/" class="text-slate-300 hover:text-amber-400">› Página Inicial</a></li>
+        <li><a href="/sobre-nos" class="text-slate-300 hover:text-amber-400">› Quem Somos</a></li>
+        <li><a href="/contato" class="text-slate-300 hover:text-amber-400">› Contato</a></li>
+        <li><a href="/politica-de-privacidade" class="text-slate-300 hover:text-amber-400">› Privacidade & Cookies</a></li>
+      </ul>
+
+      <p class="text-xs text-slate-400 leading-relaxed pt-2">
+        Equipes móveis posicionadas estrategicamente no Centro, Zona Sul (Ribeirânia, Nova Aliança, Jardim Botânico, Bonfim Paulista), Eixo Anhanguera (Parque Industrial Anhanguera, Castelo Branco, Jardim Paulista) e Zona Norte (Ipiranga, Campos Elíseos, Quintino Facci).
+      </p>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <p>© {new Date().getFullYear()} {COMPANY_INFO.fullName} ({COMPANY_INFO.domain}). Todos os direitos reservados.</p>
+    <p>
+      <a href="/politica-de-privacidade" class="hover:text-slate-300 underline">Termos de Uso e Política de Cookies (LGPD)</a>
+    </p>
+  </div>
+</footer>

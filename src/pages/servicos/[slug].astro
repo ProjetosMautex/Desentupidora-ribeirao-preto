@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqAccordion from '../../components/FaqAccordion';
+import { COMPANY_INFO, SERVICES_DATA, type ServiceItem } from '../../data/seoData';
+
+export function getStaticPaths() {
+  return SERVICES_DATA.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: ServiceItem;
+}
+
+const { service } = Astro.props;
+const otherServices = SERVICES_DATA.filter((s) => s.slug !== service.slug);
+
+const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  `Olá! Estou na página de ${service.title} e gostaria de solicitar uma visita gratuita.`
+)}`;
+---
+
+<BaseLayout
+  title={service.metaTitle}
+  description={service.metaDescription}
+  canonicalPath={`/servicos/${service.slug}`}
+  faqSchemaItems={service.faq}
+>
+  <!-- Service Hero -->
+  <section class="relative bg-slate-950 text-white py-16 lg:py-24 overflow-hidden">
+    <img
+      src="/images/hidrojateamento-esgoto.jpg"
+      alt={service.title}
+      class="absolute inset-0 w-full h-full object-cover opacity-30"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900/60"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb for SEO -->
+      <nav aria-label="Breadcrumb" class="text-xs text-slate-400 mb-6 flex items-center gap-2">
+        <a href="/" class="hover:text-amber-400 transition-colors">
+          Desentupidora Ribeirão Preto (Home)
+        </a>
+        <span>/</span>
+        <span class="text-amber-400 font-semibold">{service.shortTitle}</span>
+      </nav>
+
+      <div class="max-w-3xl space-y-5">
+        <span class="inline-block bg-amber-400 text-slate-950 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
+          {service.badge} • Ribeirão Preto SP
+        </span>
+
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+          {service.title}
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+          {service.heroSubtitle}
+        </p>
+
+        <div class="pt-3 flex flex-wrap items-center gap-4">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base px-7 py-4 rounded-full shadow-lg shadow-emerald-500/25 transition-all"
+          >
+            <span>CHAMAR NO WHATSAPP AGORA</span>
+          </a>
+          <a
+            href="/contato"
+            class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm sm:text-base px-6 py-4 rounded-full transition-all"
+          >
+            <span>Solicitar Orçamento por E-mail</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content & Silo Sidebar -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-12">
+      <!-- Left Article Content -->
+      <div class="lg:col-span-8 space-y-10">
+        <div class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Como funciona nosso serviço de {service.title}?
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+
+        <!-- Benefits Box -->
+        <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200">
+          <h3 class="text-xl font-extrabold text-slate-900 mb-4">
+            Diferenciais da HidroRibeirão em Ribeirão Preto SP
+          </h3>
+          <ul class="grid sm:grid-cols-2 gap-4">
+            {service.benefits.map((b) => (
+              <li class="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-200/80 text-sm text-slate-700 font-medium">
+                <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center shrink-0 text-xs">
+                  ✓
+                </span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Step by Step -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-extrabold text-slate-900">
+            Passo a Passo Técnico Sem Quebrar Pisos
+          </h3>
+          <div class="grid sm:grid-cols-3 gap-5">
+            {service.processSteps.map((step) => (
+              <div class="bg-indigo-950 text-white p-6 rounded-2xl border-b-4 border-amber-400">
+                <h4 class="font-extrabold text-amber-400 text-base mb-2">
+                  {step.title}
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Service Specific FAQ -->
+        {service.faq.length > 0 && (
+          <div class="pt-4 space-y-4">
+            <h3 class="text-2xl font-extrabold text-slate-900">
+              Dúvidas Frequentes sobre {service.shortTitle} em Ribeirão Preto
+            </h3>
+            <FaqAccordion client:visible items={service.faq} />
+          </div>
+        )}
+      </div>
+
+      <!-- Right Sidebar: Silo Navigation & Quick Contact -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-7 border border-slate-800 space-y-4">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-amber-400 block">
+            ORÇAMENTO SEM COMPROMISSO
+          </span>
+          <h3 class="text-xl font-extrabold">
+            {service.priceHint}
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Nossa equipe técnica vai até o seu endereço em Ribeirão Preto em até 30 minutos para avaliar o serviço gratuitamente.
+          </p>
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm py-3.5 px-4 rounded-xl transition-all"
+          >
+            Solicitar Visita Grátis no WhatsApp
+          </a>
+        </div>
+
+        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 space-y-4">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-slate-900">
+            Outros Serviços em Ribeirão Preto
+          </h3>
+          <ul class="space-y-2.5 text-sm">
+            {otherServices.map((s) => (
+              <li>
+                <a
+                  href={`/servicos/${s.slug}`}
+                  class="flex items-center justify-between p-3 rounded-xl bg-white border border-slate-200/80 hover:border-blue-800 text-slate-800 hover:text-blue-900 font-semibold transition-all"
+                >
+                  <span>{s.shortTitle}</span>
+                  <span class="text-amber-500 font-bold">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="pt-2">
+            <a
+              href="/"
+              class="block text-center text-xs font-extrabold text-blue-900 hover:underline"
+            >
+              ← Voltar para a Página Inicial (Home)
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

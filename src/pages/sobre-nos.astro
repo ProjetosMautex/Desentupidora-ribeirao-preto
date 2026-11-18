@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { COMPANY_INFO } from '../data/seoData';
+
+const waUrl = `https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent(
+  'Olá! Estava na página Quem Somos da HidroRibeirão e gostaria de um orçamento em Ribeirão Preto.'
+)}`;
+---
+
+<BaseLayout
+  title="Quem Somos | HidroRibeirão Desentupidora e Saneamento em Ribeirão Preto"
+  description="Conheça a HidroRibeirão: mais de 24 anos de excelência em limpeza, engenharia hidrossanitária, sistema desagregador hidráulico e desentupimentos em Ribeirão Preto SP."
+  canonicalPath="/sobre-nos"
+>
+  <!-- =====================================================================
+       1. TOP BANNER "QUEM SOMOS" (Inspired directly by reference screenshot)
+       ===================================================================== -->
+  <section class="relative h-[280px] sm:h-[360px] flex items-center justify-center overflow-hidden bg-slate-950">
+    <img
+      src="/images/hero-caminhao.jpg"
+      alt="Frota da HidroRibeirão Desentupidora em Ribeirão Preto"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-55"
+    />
+    <div class="absolute inset-0 bg-slate-950/50"></div>
+
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight drop-shadow-md">
+        Quem Somos
+      </h1>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       2. MAIN INSTITUTIONAL SECTION (2 Columns + 24+ Badge + 3 Yellow Icons)
+       ===================================================================== -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Left Column: Institutional Story & 3 Values -->
+        <div class="lg:col-span-6 space-y-5">
+          <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-indigo-950 block">
+            SEU PARCEIRO EM SOLUÇÕES DE SANEAMENTO
+          </span>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Excelência em Limpeza e Desentupimentos desde {COMPANY_INFO.foundedYear}
+          </h2>
+
+          <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p>
+              Fundada em {COMPANY_INFO.foundedYear}, a <strong>HidroRibeirão Limpeza e Desentupimentos</strong> é referência no mercado, atuante no setor de esgotamento sanitário, engenharia <strong>hidrossanitária</strong> e desobstrução técnica com equipes posicionadas estrategicamente na cidade de <strong>Ribeirão Preto – SP</strong>.
+            </p>
+            <p>
+              Atendemos <strong>Ribeirão Preto</strong> (Centro, Zona Sul, Eixo Anhanguera, Zona Leste e Zona Norte), Bonfim Paulista, Cravinhos, Sertãozinho e toda a região nos serviços do setor de <strong>saneamento básico em Ribeirão Preto</strong>, dentre eles transporte de efluentes para <strong>estação de tratamento de esgoto de Ribeirão Preto</strong>, limpeza de fossa e <strong>limpeza de caixa de gordura</strong>, desentupimentos de esgoto, vasos sanitários e ralos, hidrojateamento e <strong>sistema desagregador hidráulico</strong>.
+            </p>
+            <p>
+              Investimos constantemente na aquisição de equipamentos modernos que desentopem sem quebrar pisos e no treinamento técnico avançado dos nossos profissionais, garantindo rapidez, preço justo e satisfação total nos resultados dos serviços prestados.
+            </p>
+            <p>
+              Nossas atividades são fundamentadas no atendimento rigoroso aos requisitos legais e ambientais de nosso segmento, com ênfase na qualificação, segurança do trabalho de nossos colaboradores e satisfação de nossos clientes.
+            </p>
+          </div>
+
+          <!-- 3 Circular Yellow Icon Features (Matching Reference Screenshot) -->
+          <div class="space-y-6 pt-4">
+            <!-- Item 1 -->
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-extrabold text-slate-900">
+                  Compromisso com a Qualidade
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                  Equipe treinada e certificada, utilizando equipamentos modernos para garantir excelência e segurança sem danificar a estrutura do imóvel.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-extrabold text-slate-900">
+                  Atendimento Personalizado
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                  Oferecemos soluções sob medida em Ribeirão Preto SP, com atendimento dedicado 24 horas e orçamento gratuito desde o primeiro contato.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-full bg-amber-400 flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30">
+                <svg class="w-7 h-7 stroke-slate-950" fill="none" viewBox="0 0 24 24" stroke-width="2.2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-extrabold text-slate-900">
+                  Sustentabilidade e Responsabilidade Ambiental
+                </h3>
+                <p class="text-sm text-slate-600 leading-relaxed mt-1">
+                  Práticas sustentáveis e rigoroso cumprimento das normas ambientais com descarte em Estação de Tratamento de Esgoto de Ribeirão Preto para preservar o meio ambiente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Stacked 24+ Badge + Media Player Frame (Matching Reference Layout) -->
+        <div class="lg:col-span-6 space-y-4">
+          <!-- Indigo Badge with Rounded Top-Right & Bottom-Left Corners -->
+          <div class="inline-block bg-indigo-950 text-white px-10 py-6 rounded-tr-[36px] rounded-bl-[28px] shadow-xl">
+            <div class="text-4xl sm:text-5xl font-black tracking-tight text-white text-center">
+              {COMPANY_INFO.yearsExperience}
+            </div>
+            <div class="text-xs font-extrabold uppercase tracking-widest text-slate-200 mt-1 text-center">
+              ANOS DE EXPERIÊNCIA
+            </div>
+          </div>
+
+          <!-- Operational Media Showcase Frame -->
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-950">
+            <img
+              src="/images/equipe-tecnica.jpg"
+              alt="Atendimento e gestão técnica da HidroRibeirão em Ribeirão Preto"
+              class="w-full h-[380px] sm:h-[460px] object-cover"
+            />
+            <!-- Video-style Bottom Control Bar -->
+            <div class="bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 text-white">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-200 mb-2">
+                <div class="flex items-center gap-2">
+                  <span>▶</span>
+                  <span>0:05 / 0:45 • Central de Operações Ribeirão Preto</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span>🔊</span>
+                  <span>⛶</span>
+                  <span>⋮</span>
+                </div>
+              </div>
+              <div class="w-full bg-white/30 h-1 rounded-full overflow-hidden">
+                <div class="bg-white w-1/4 h-full rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       3. "ATENDIMENTO EM DIVERSOS SEGMENTOS:" (Inspired directly by screenshot)
+       ===================================================================== -->
+  <section class="py-16 lg:py-20 bg-white border-t border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-14">
+        Atendimento em diversos segmentos:
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
+        <!-- Segment 1: Residencial -->
+        <div class="flex flex-col items-center group">
+          <div class="w-20 h-20 rounded-2xl bg-indigo-50/70 group-hover:bg-amber-400/20 flex items-center justify-center transition-colors mb-4">
+            <svg class="w-12 h-12 stroke-indigo-950" fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5M5 9v11h14V9M9 20v-6h6v6" />
+            </svg>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">
+            Residencial
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Casas, apartamentos e condomínios em Ribeirão Preto
+          </p>
+        </div>
+
+        <!-- Segment 2: Comercial -->
+        <div class="flex flex-col items-center group">
+          <div class="w-20 h-20 rounded-2xl bg-indigo-50/70 group-hover:bg-amber-400/20 flex items-center justify-center transition-colors mb-4">
+            <svg class="w-12 h-12 stroke-indigo-950" fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9l1.5-5h15L21 9M3 9c0 1.657 1.343 3 3 3s3-1.343 3-3c0 1.657 1.343 3 3 3s3-1.343 3-3c0 1.657 1.343 3 3 3s3-1.343 3-3M5 12v8h14v-8M9 20v-5h6v5" />
+            </svg>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">
+            Comercial
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Restaurantes, clínicas, lojas, bares e shoppings
+          </p>
+        </div>
+
+        <!-- Segment 3: Indústria -->
+        <div class="flex flex-col items-center group">
+          <div class="w-20 h-20 rounded-2xl bg-indigo-50/70 group-hover:bg-amber-400/20 flex items-center justify-center transition-colors mb-4">
+            <svg class="w-12 h-12 stroke-indigo-950" fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V8l5 4V8l5 4V4h4v17M9 17h1m4 0h1" />
+            </svg>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">
+            Indústria
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Fábricas, usinas, galpões e Distrito Industrial
+          </p>
+        </div>
+
+        <!-- Segment 4: Público -->
+        <div class="flex flex-col items-center group">
+          <div class="w-20 h-20 rounded-2xl bg-indigo-50/70 group-hover:bg-amber-400/20 flex items-center justify-center transition-colors mb-4">
+            <svg class="w-12 h-12 stroke-indigo-950" fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M4 10h16M6 10v11m4-11v11m4-11v11m4-11v11M12 3l9 7H3l9-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">
+            Público
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">
+            Hospitais, escolas, órgãos e autarquias
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base px-8 py-4 rounded-full shadow-lg shadow-emerald-500/20 transition-all"
+        >
+          <span>SOLICITAR ATENDIMENTO NO WHATSAPP</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       4. BOTTOM DIAGONAL SPLIT BANNER (Matching Reference Screenshot)
+       ===================================================================== -->
+  <section class="bg-slate-100 overflow-hidden border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 items-stretch">
+        <div class="lg:col-span-5 py-14 lg:py-20 pr-0 lg:pr-10 flex flex-col justify-center">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-950 mb-2">
+            EXCELÊNCIA EM SANEAMENTO DESDE {COMPANY_INFO.foundedYear}
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
+            Seu Parceiro em Limpeza e Desentupimentos em Ribeirão Preto e Região
+          </h2>
+        </div>
+
+        <div class="lg:col-span-7 relative flex items-stretch">
+          <div
+            class="hidden lg:block w-8 bg-amber-400 shrink-0 transform -skew-x-12 translate-x-4 z-10"
+            aria-hidden="true"
+          ></div>
+
+          <div class="bg-indigo-950 text-white flex-1 py-14 lg:py-20 px-6 sm:px-10 lg:pl-16 lg:pr-12 rounded-3xl lg:rounded-none grid sm:grid-cols-2 gap-8 items-center relative">
+            <div class="space-y-3">
+              <div class="w-10 h-1 bg-amber-400 rounded-full"></div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-white">
+                Nossa Visão
+              </h3>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                Ser reconhecida pela excelência, rapidez 24 horas, qualidade e confiabilidade dos serviços de desentupidora em Ribeirão Preto.
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <div class="w-10 h-1 bg-amber-400 rounded-full"></div>
+              <h3 class="text-xl sm:text-2xl font-extrabold text-white">
+                Nossa Missão
+              </h3>
+              <p class="text-sm text-slate-200 leading-relaxed">
+                Prestar serviços eficientes de desentupimento e saneamento básico em Ribeirão Preto, promovendo valor socioambiental.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

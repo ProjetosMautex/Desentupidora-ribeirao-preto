@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hidroribeirao.com/sitemap.xml
+Sitemap: https://hidroribeirao.com/sitemap-index.xml
